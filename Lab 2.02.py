@@ -51,7 +51,7 @@ not(x or y) == not x and not y
 
 not(x and y) == not x or not y
 '''
-can be president (returns true if can be presdident)
+#can be president (returns true if can be presdident)
 print("we are going to see if you can become president!")
 age = int(input("How old are you? "))
 Residentcy = input("How long have you been a resident of the US? ")
