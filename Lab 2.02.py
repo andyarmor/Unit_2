@@ -51,8 +51,30 @@ not(x or y) == not x and not y
 
 not(x and y) == not x or not y
 '''
-print("we are going to see if you can become president!")
-age = int(input)("How old are you? ")
-Residentcy = int(input)("How long have you been a resident of the US? ")
-citizen = str(input("Are you a natural born citizen? ")
-age >= 35 and Residentcy >= 14 and citizen == 'yes'
+# can be president (returns true if can be presdident)
+# print("we are going to see if you can become president!")
+# age = int(input("How old are you? "))
+# Residentcy = input("How long have you been a resident of the US? ")
+# citizen = input("Are you a natural born citizen? ")
+# print(age > 35 and Residentcy >= '14' and citizen == 'yes')
+
+# # can't be president (returns true if can't be president)
+# print("We are going to see if you can't be a president!")
+# age = int(input("How old are you? "))
+# Residentcy = input("How long have you been a resident of the US? ")
+# citizen = input("Are you a natural born citizen? ")
+# print(age < 35 or Residentcy <= '14' or citizen != 'yes')
+
+# can I ride rollercoaster (true if can ride)
+print("Can you ride a rollercoaster?")
+height = int(input("How tall are you? "))
+over_18 = int(input("How old are you? "))
+quarters = int(input("how many quarters do you have? "))
+frequent = ("(yes/no) Do you have a frequent rider pass? ")
+#logic variables
+can_pay = quarters >= 4 or frequent == 'yes'
+old_enough = over_18 >= 18
+tall_enough = height >= 50
+
+# (if 18 and (money or pass)) OR are tall enough and money or pass
+print((can_pay and tall_enough) or (can_pay and old_enough))
