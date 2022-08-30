@@ -51,19 +51,19 @@ not(x or y) == not x and not y
 
 not(x and y) == not x or not y
 '''
-# can be president (returns true if can be presdident)
-# print("we are going to see if you can become president!")
-# age = int(input("How old are you? "))
-# Residentcy = input("How long have you been a resident of the US? ")
-# citizen = input("Are you a natural born citizen? ")
-# print(age > 35 and Residentcy >= '14' and citizen == 'yes')
+can be president (returns true if can be presdident)
+print("we are going to see if you can become president!")
+age = int(input("How old are you? "))
+Residentcy = input("How long have you been a resident of the US? ")
+citizen = input("Are you a natural born citizen? ")
+print(age > 35 and Residentcy >= '14' and citizen == 'yes')
 
-# # can't be president (returns true if can't be president)
-# print("We are going to see if you can't be a president!")
-# age = int(input("How old are you? "))
-# Residentcy = input("How long have you been a resident of the US? ")
-# citizen = input("Are you a natural born citizen? ")
-# print(age < 35 or Residentcy <= '14' or citizen != 'yes')
+# can't be president (returns true if can't be president)
+print("We are going to see if you can't be a president!")
+age = int(input("How old are you? "))
+Residentcy = input("How long have you been a resident of the US? ")
+citizen = input("Are you a natural born citizen? ")
+print(age < 35 or Residentcy <= '14' or citizen != 'yes')
 
 # can I ride rollercoaster (true if can ride)
 print("Can you ride a rollercoaster?")
