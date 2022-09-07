@@ -125,8 +125,65 @@ food = ['donuts', 'pancakes', 'bacon', 'waffles','eggs','baggles']
 score = [0,0,0,0,0,0]
 
 print('Please answer each questions with "y" for "yes" and "n" for "no."')
-user_input = input('Do you like food with holes? ')
+user_input = input("Do you like food with holes? ")
+
+
 if user_input == 'y':
-  score[0] = score[0] + 1
-  score[5] = score[5] + 1
-else 
+  score[0] = score[0] + 1 #add 1 to donut
+  score[5] = score[5] + 1 #add 1 to baggles
+
+user_input = input("Do you like fried foods? ")
+if user_input == 'y':
+    score[0] +=1 #add 1 to donuts
+    score[1] +=1  #add 1 to pancakes
+    score[2] +=1 # add 1 to bacon
+    score[3]#add 1 to waffles 
+    score[4] +=1 #add 1 to eggs
+
+user_input = input("Do you like yellow foods? ")
+if user_input == 'y': 
+    score[4] +=1
+
+
+user_input = input("Do you like boiled foods? ")
+if user_input == 'y':
+    score[4] +=1
+    score[5] +=1
+
+user_input = input("Do you like foods with squares in them? ")
+if user_input == 'y':
+    score[3] +=1
+
+user_input = input("Do you like circle shaped foods? ")
+if user_input == 'y':
+    score[0] +=1
+    score[1] +=1
+    score[5] +=1
+
+user_input = input("Do you like food made from pigs? ")
+if user_input == 'y':
+    score[2] +=1
+
+user_input = input("Do you like hot foods? ")
+if user_input == 'y':
+    score[0] +=1
+    score[1] +=1
+    score[2] +=1
+    score[3] +=1
+    score[4] +=1
+
+
+
+
+
+#find fav food
+
+max_score = max(score) #find highest score in list
+index_of_max_score = score.index(max_score) #return index number of highest score
+fav_food = food[index_of_max_score] #find food item with the same index as max score
+print(fav_food)
+
+#unreadable ways to do the stuff above
+# print(max(score))
+#print(score.index(max(score)))
+#print(food[score.index(max(score))]
