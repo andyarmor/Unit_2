@@ -181,9 +181,14 @@ if user_input == 'y':
 max_score = max(score) #find highest score in list
 index_of_max_score = score.index(max_score) #return index number of highest score
 fav_food = food[index_of_max_score] #find food item with the same index as max score
-print(fav_food)
+print(f"Your favorite food is {fav_food}")
 
-#unreadable ways to do the stuff above
-# print(max(score))
-#print(score.index(max(score)))
-#print(food[score.index(max(score))]
+#remove the first fav from food list and corresponding score list
+score.remove(score[index_of_max_score])
+food.remove(food[index_of_max_score])
+
+# find new fav food
+max_score = max(score) #find highest score in list
+index_of_max_score = score.index(max_score) #return index number of highest score
+fav_food = food[index_of_max_score] #find food item with the same index as max score
+print(f"Your second favorite food is {fav_food}")
