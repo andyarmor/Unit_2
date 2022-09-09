@@ -80,4 +80,63 @@ that.
 3. Print the updated board out, but don't worry about making it look pretty.
 4. Only need to implement one turn of the game
 '''
-user_pick = ["a","2","3","4","5","6","7","8","9"]
+#making board
+board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+#print 1st row of board
+print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
+print('----------')
+
+#second row
+print(f"{board[1][0]} | {board[1][1]} | {board[1][2]}")
+print('----------')
+
+#third row
+print(f"{board[2][0]} | {board[2][1]} | {board[2][2]}")
+print('----------')
+
+#f allows you to add strings and values
+
+#player chooses a location
+cell_selected = int(input("Choose a location on the board: "))
+
+#replace number in the board with an X
+if cell_selected ==1:
+    board[0][0] ='X'
+elif cell_selected ==2:
+    board[0][1] = 'X'
+elif cell_selected ==3:
+    board[0][2] = 'X'
+elif cell_selected ==4:
+    board[1][0] = 'X'
+elif cell_selected ==5:
+    board[1][1] = 'X'
+elif cell_selected ==6:
+    board[1][2] = 'X'
+elif cell_selected ==7:
+    board[2][0] = 'X'
+elif cell_selected ==8:
+    board[2][1] = 'X'
+elif cell_selected ==9:
+    board[2][2] = 'X'
+
+
+
+#print 1st row of board
+print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
+print('----------')
+
+#second row
+print(f"{board[1][0]} | {board[1][1]} | {board[1][2]}")
+print('----------')
+
+#third row
+print(f"{board[2][0]} | {board[2][1]} | {board[2][2]}")
+print('----------')
+
+
+
+
+
+
+
+
