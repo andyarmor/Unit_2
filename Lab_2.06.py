@@ -52,10 +52,17 @@ Print the updated board out.
 You will not need to determine the winner at this point.
 (Copy and paste your previous tic-tac-toe version and modify the code to implement the above)
 '''
-# P1 first turn 
-#making board
+
+
+
+
 board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-#print 1st row of board
+turns = 0 
+player = 1
+player_symbol = ""
+valid_choice = False
+
+#print first row
 print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
 print('----------')
 
@@ -69,78 +76,72 @@ print('----------')
 
 #f allows you to add strings and values
 
-#player chooses a location
-cell_selected = int(input("User 1: Choose a location on the board: "))
+while turns < 9:
+    player_choice = int(input(f"Choose a number to place your {player_symbol}"))
 
-#replace number in the board with an X
-if cell_selected ==1:
-    board[0][0] ='X'
-elif cell_selected ==2:
-    board[0][1] = 'X'
-elif cell_selected ==3:
-    board[0][2] = 'X'
-elif cell_selected ==4:
-    board[1][0] = 'X'
-elif cell_selected ==5:
-    board[1][1] = 'X'
-elif cell_selected ==6:
-    board[1][2] = 'X'
-elif cell_selected ==7:
-    board[2][0] = 'X'
-elif cell_selected ==8:
-    board[2][1] = 'X'
-elif cell_selected ==9:
-    board[2][2] = 'X'
-
-
-
-#print 1st row of board
-print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
-print('----------')
-
-#second row
-print(f"{board[1][0]} | {board[1][1]} | {board[1][2]}")
-print('----------')
-
-#third row
-print(f"{board[2][0]} | {board[2][1]} | {board[2][2]}")
-print('----------')
-
-#P2 First Turn
-
-cell_selected = int(input("User 2: Choose a location on the board: "))
-
-#replace number in the board with an X
-if cell_selected ==1:
-    board[0][0] ='O'
-elif cell_selected ==2:
-    board[0][1] = 'O'
-elif cell_selected ==3:
-    board[0][2] = 'O'
-elif cell_selected ==4:
-    board[1][0] = 'O'
-elif cell_selected ==5:
-    board[1][1] = 'O'
-elif cell_selected ==6:
-    board[1][2] = 'O'
-elif cell_selected ==7:
-    board[2][0] = 'O'
-elif cell_selected ==8:
-    board[2][1] = 'O'
-elif cell_selected ==9:
-    board[2][2] = 'O'
-
-
-#print 1st row of board
-print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
-print('----------')
+    #move conditional 
+    if player_choice ==1 and board [0][0] ==1:
+        board[0][0] = player_symbol
+        valid_choice =True
+    elif player_choice == 2 and board [0][1] ==2:
+        board[0][1] = player_symbol
+        valid_choice =True
+    elif player_choice == 3 and board [0][2] ==3:
+        board[0][2] = player_symbol
+        valid_choice =True
+    elif player_choice == 4 and board [1][0] ==4:
+        board[1][0] = player_symbol
+        valid_choice =True
+    elif player_choice == 5 and board [1][1] ==5:
+        board[1][1] = player_symbol
+        valid_choice =True
+    elif player_choice == 6 and board [1][2] ==6:
+        board[1][2] = player_symbol
+        valid_choice =True
+    elif player_choice == 7 and board [2][0] ==7:
+        board[2][0] = player_symbol
+        valid_choice =True
+    elif player_choice == 8 and board [2][1] ==8:
+        board[2][1] = player_symbol
+        valid_choice =True
+    elif player_choice == 9 and board [2][2] ==9:
+        board[2][2] = player_symbol
+        valid_choice =True
+    else:
+        print("invalid")
+        
+#print first row of board
+    print(f"{board[0][0]} | {board[0][1]} | {board[0][2]}")
+    print('----------')
 
 #second row
-print(f"{board[1][0]} | {board[1][1]} | {board[1][2]}")
-print('----------')
+    print(f"{board[1][0]} | {board[1][1]} | {board[1][2]}")
+    print('----------')
 
 #third row
-print(f"{board[2][0]} | {board[2][1]} | {board[2][2]}")
-print('----------')
+    print(f"{board[2][0]} | {board[2][1]} | {board[2][2]}")
+    print('----------')
+
+    #Switch players
+    if valid_choice == True:
+        turns +=1
+        if player ==1:
+            player =2
+            player_symbol = 'O'
+        else:
+            player =1
+            player_symbol = 'X'
+    valid_choice = False
+
+print("No more turns, GAME OVER!")
+    
+
+
+
+
+
+
+
+
 
 
