@@ -59,7 +59,7 @@ You will not need to determine the winner at this point.
 board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 turns = 0 
 player = 1
-player_symbol = ""
+player_symbol = "X"
 valid_choice = False
 
 #print first row
@@ -77,7 +77,7 @@ print('----------')
 #f allows you to add strings and values
 
 while turns < 9:
-    player_choice = int(input(f"Choose a number to place your {player_symbol}"))
+    player_choice = int(input(f"Choose a number to place your {player_symbol} "))
 
     #move conditional 
     if player_choice ==1 and board [0][0] ==1:
