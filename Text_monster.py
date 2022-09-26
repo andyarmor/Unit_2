@@ -5,6 +5,7 @@
 floor_1 = ['empty', 'sword', 'stairs up', 'monster', 'empty' ]
 floor_2 = ['stairs up', 'sword', 'stairs down', 'monster', 'magic stones'], 
 floor_3 = ['stairs down', 'empty', 'empty', 'boss monster', 'prize']
+floor_list = [floor_1, floor_2, floor_3]
 
 #variables
 current_floor = floor_1
@@ -15,7 +16,7 @@ inventory = []
 #update current location
 playing =True
 while playing: 
-    print(f"The current room has {current_floor[current_room]}")
+    #print(f"The current room has {current_floor[current_room]}")
     print(f"Your current floor is {current_floor}")
     current_location = current_floor[current_room]
     
@@ -53,6 +54,7 @@ while playing:
     elif player_choice == 'up' and current_location == 'stairs up':
         if current_floor == floor_1:
             current_floor = floor_2
+            current_room = 0
         elif current_floor == floor_2:
             current_floor = floor_3
     elif player_choice == 'down' and current_location == 'stairs down':
@@ -67,15 +69,13 @@ while playing:
             print("You are either not in the right spot or don't have your required materials to fight. Sorry!")
     elif player_choice == 'grab':
         if current_location == 'sword': 
-            print("You've added a sword to your inventory!")
             current_floor.remove('sword')
             inventory = ['sword']
-            print(inventory)
+            print(f"Your inventory now includes a {inventory[0]} and you are now in the next room!")
         elif current_location == 'magic stones':
-            print("You have added the magic stones to your inventory.")
             current_floor.remove('magic stones') 
             inventory = ['sword', 'magic stones']
-            print(f"You now have a [")
+            print(f"You now have a {inventory[0]} and {inventory[1]}")
         
         else:
             print("There is nothing to grab here!")
