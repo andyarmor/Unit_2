@@ -62,11 +62,11 @@ while playing:
             current_floor = floor_2
         elif current_floor == floor_2:
             current_floor = floor_1
-    elif player_choice == 'fight':
-        if inventory == 'sword' and 'magic stones':
-            print("You won! Go right to claim your prize, Congratulations!")
-        else:
-            print("You are either not in the right spot or don't have your required materials to fight. Sorry!")
+    #elif player_choice == 'fight':
+        #if inventory == 'sword' and 'magic stones':
+            #print("You won! Go right to claim your prize, Congratulations!")
+        #else:
+            #print("You are either not in the right spot or don't have your required materials to fight. Sorry!")
     elif player_choice == 'grab':
         if current_location == 'sword': 
             current_floor.remove('sword')
@@ -76,12 +76,24 @@ while playing:
             current_floor.remove('magic stones') 
             inventory = ['sword', 'magic stones']
             print(f"You now have a {inventory[0]} and {inventory[1]}")
-        
         else:
             print("There is nothing to grab here!")
+    elif player_choice == 'fight':
+        if current_location == 'monster':
+            if 'sword' in inventory:
+                print("You have defeated the monster!")
+                current_floor.remove('monster')
+            else:
+                print("You lost to the monster!")
+    elif player_choice == 'inventory':
+            if 'sword' and 'magic stones' in inventory:
+                print(f"In your inventory you have a {inventory[0]} and {inventory[1]}")    
+            elif 'sword' in inventory:
+                print("Your inventory has a sword right now!")
+            elif 'magic stones' in inventory:
+                print("Your inventory has magic stones!")
+
     
     print()    
 
-    if current_location == 'sword' and current_floor == floor_1:
-        print("")
 
