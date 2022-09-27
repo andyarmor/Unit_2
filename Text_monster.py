@@ -3,7 +3,7 @@
 
 #make dungeon
 floor_1 = ['empty', 'sword', 'stairs up', 'monster', 'empty' ]
-floor_2 = ['stairs up', 'sword', 'stairs down', 'monster', 'magic stones'], 
+floor_2 = ['stairs up', 'sword', 'stairs down', 'monster', 'magic stones']
 floor_3 = ['stairs down', 'empty', 'empty', 'boss monster', 'prize']
 floor_list = [floor_1, floor_2, floor_3]
 
@@ -18,6 +18,7 @@ playing =True
 while playing: 
     #print(f"The current room has {current_floor[current_room]}")
     print(f"Your current floor is {current_floor}")
+    print(f"{current_room} is the room index")
     current_location = current_floor[current_room]
     
     if current_location == 'empty':
@@ -33,14 +34,12 @@ while playing:
     elif current_location == 'magic stones':
         print("You see the great magic stones!")
     
-        print("You won and see the shiny prize!!")
-
     
 
 #player choice
-    player_choice = input("What would you like to do? (left, right, up, down, grab, fight, inventory)")
+    player_choice = input("What would you like to do? (left, right, up, down, grab, fight, inventory, quit)")
 
-    if player_choice == 'right':
+    if player_choice == 'right' and current_location != 'monster':
         if  current_room < 4:
             current_room +=1
         else: 
@@ -54,7 +53,6 @@ while playing:
     elif player_choice == 'up' and current_location == 'stairs up':
         if current_floor == floor_1:
             current_floor = floor_2
-            current_room = 0
         elif current_floor == floor_2:
             current_floor = floor_3
     elif player_choice == 'down' and current_location == 'stairs down':
@@ -62,29 +60,29 @@ while playing:
             current_floor = floor_2
         elif current_floor == floor_2:
             current_floor = floor_1
-    #elif player_choice == 'fight':
-        #if inventory == 'sword' and 'magic stones':
-            #print("You won! Go right to claim your prize, Congratulations!")
-        #else:
-            #print("You are either not in the right spot or don't have your required materials to fight. Sorry!")
     elif player_choice == 'grab':
         if current_location == 'sword': 
-            current_floor.remove('sword')
-            inventory = ['sword']
-            print(f"Your inventory now includes a {inventory[0]} and you are now in the next room!")
+            current_floor[current_room] = 'empty'
+            inventory.append('sword')
+            print("Your inventory now includes a sword!")
+            current_floor[current_room] = 'empty'
         elif current_location == 'magic stones':
-            current_floor.remove('magic stones') 
-            inventory = ['sword', 'magic stones']
-            print(f"You now have a {inventory[0]} and {inventory[1]}")
+            current_floor[current_room] = 'empty'
+            inventory.append('magic stones')
+            print(f"Your inventory now includes magic stones!")
         else:
             print("There is nothing to grab here!")
     elif player_choice == 'fight':
         if current_location == 'monster':
             if 'sword' in inventory:
-                print("You have defeated the monster!")
-                current_floor.remove('monster')
+                print("You have defeated the monster! You can continue")
+                current_floor[current_room] = 'empty'
             else:
-                print("You lost to the monster!")
+                print("You have lost to the monster and can not continue without having a sword!")
+        elif current_location == 'boss monster':
+            if 'sword' and 'magic stones' in inventory:
+                print("You have defeated the boss monster! Continue to claim your prize")
+            
     elif player_choice == 'inventory':
             if 'sword' and 'magic stones' in inventory:
                 print(f"In your inventory you have a {inventory[0]} and {inventory[1]}")    
@@ -92,6 +90,9 @@ while playing:
                 print("Your inventory has a sword right now!")
             elif 'magic stones' in inventory:
                 print("Your inventory has magic stones!")
+    elif player_choice == 'quit':
+        break
+
 
     
     print()    
