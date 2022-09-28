@@ -17,7 +17,7 @@ inventory = []
 playing =True
 while playing: 
     #print(f"The current room has {current_floor[current_room]}")
-    #print(f"Your current floor is {current_floor}")
+    print(f"Your current floor is {current_floor}")
     #print(f"{current_room} is the room index")
     current_location = current_floor[current_room]
     
@@ -35,6 +35,9 @@ while playing:
         print("You see the great magic stones!")
     elif current_location == 'boss monster':
         print("The biggest monster you have ever seen is here!")
+    elif current_location == 'prize':
+        print("You see the prize! You've almost won!")
+        
     
 
 #player choice
@@ -73,6 +76,8 @@ while playing:
             print(f"Your inventory now includes magic stones!")
         elif current_location == 'prize':
             inventory.append('prize')
+            print("You have won! Enjoy your prize!")
+            break
             
         else:
             print("There is nothing to grab here!")
@@ -88,10 +93,12 @@ while playing:
             if 'sword' and 'magic stones' in inventory:
                 user_answer = input("You have defeated the boss monster! Solve this riddle to continue to your prize: What has to be broken before you can eat it?")
                 answer = 'egg'
+                current_floor[current_room] ='empty'
                 if user_answer == 'egg':
                     print("You can continue to your prize!")
                 else:
-                    print("Wrong answer")
+                    print("Wrong answer, you cannot continue to the prize")
+
 
 
     elif player_choice == 'inventory':
@@ -103,7 +110,7 @@ while playing:
                 print("Your inventory has magic stones!")
             elif 'prize' in inventory:
                 print("You have the prize!")
-            elif '' in inventory:
+            elif 'sword' or 'magic stones' not in inventory:
                 print("You have nothing in your inventory!")
     elif player_choice == 'drop':
         dropped_item = input("What would you like to drop?")
@@ -111,7 +118,7 @@ while playing:
             inventory.remove('sword')
         elif dropped_item == 'magic stones':
             inventory.remove('magic stones')
-        elif dropped_item == '':
+        elif dropped_item != 'magic stones' or 'sword':
             print("You don't have this item, so you can't drop it!")
         
 
