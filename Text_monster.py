@@ -17,7 +17,7 @@ inventory = []
 playing =True
 while playing: 
     #print(f"The current room has {current_floor[current_room]}")
-    print(f"Your current floor is {current_floor}")
+    #print(f"Your current floor is {current_floor}")
     #print(f"{current_room} is the room index")
     current_location = current_floor[current_room]
     
@@ -28,7 +28,7 @@ while playing:
     elif current_location == 'stairs up':
         print("You see some stairs leading up!")
     elif current_location == 'monster':
-        print("You see a big scary monster in the corner!")
+        print("You see a scary monster in this room!")
     elif current_location == 'stairs down':
         print("You see some stairs leading down!")
     elif current_location == 'magic stones':
@@ -43,11 +43,12 @@ while playing:
 #player choice
     player_choice = input("What would you like to do? (left, right, up, down, grab, fight, inventory, quit, drop)")
 
-    if player_choice == 'right' and current_location != 'monster'and 'boss monster':
-        if  current_room < 4:
-            current_room +=1
-        else: 
-            print("You can't go any further that direction!")
+    if player_choice == 'right': 
+        if current_location != 'monster' and 'boss monster':
+            if  current_room < 4:
+                current_room +=1
+            else: 
+                print("You can't go any further that direction!")
 
     elif player_choice == 'left': 
         if  current_room > -0:
@@ -64,6 +65,8 @@ while playing:
             current_floor = floor_2
         elif current_floor == floor_2:
             current_floor = floor_1
+    elif player_choice == 'down' and current_location =='stairs up':
+        print("You can't do this silly!")
     elif player_choice == 'grab':
         if current_location == 'sword': 
             current_floor[current_room] = 'empty'
@@ -94,12 +97,12 @@ while playing:
                 user_answer = input("You have defeated the boss monster! Solve this riddle to continue to your prize: What has to be broken before you can eat it?")
                 answer = 'egg'
                 current_floor[current_room] ='empty'
-                if user_answer == 'egg':
+                if user_answer == answer:
                     print("You can continue to your prize!")
                 else:
                     print("Wrong answer, you cannot continue to the prize")
-
-
+        else:
+            print("There is nothing to fight here!")
 
     elif player_choice == 'inventory':
             if 'sword' and 'magic stones' in inventory:
@@ -116,8 +119,10 @@ while playing:
         dropped_item = input("What would you like to drop?")
         if dropped_item == 'sword':
             inventory.remove('sword')
+            print("You've dropped your sword! You might need that!")
         elif dropped_item == 'magic stones':
             inventory.remove('magic stones')
+            print("You dropped your magic stones! You might need those!")
         elif dropped_item != 'magic stones' or 'sword':
             print("You don't have this item, so you can't drop it!")
         
