@@ -111,24 +111,18 @@ while playing:
  
                 
     elif player_choice == 'inventory':
-            if 'sword' and 'magic stones' in inventory:
-                print(f"In your inventory you have a {inventory[0]} and {inventory[1]}")    
-            elif 'sword' in inventory:
-                print("Your inventory has a sword right now!")
-            elif 'magic stones' in inventory:
-                print("Your inventory has magic stones!")
-            elif 'prize' in inventory:
-                print("You have the prize!")
-            elif 'sword' or 'magic stones' not in inventory:
-                print("You have nothing in your inventory!")
+        print(f"In your inventory you have {inventory}")
     elif player_choice == 'drop':
         if current_location == 'empty':
+            print()
             dropped_item = input("What would you like to drop? (sword, magic stones, or prize)")
             if dropped_item == 'sword' and 'sword' in inventory:
                 inventory.remove('sword')
+                current_floor[current_room] = 'sword'
                 print("You've dropped your sword! You might need that!")
             elif dropped_item == 'magic stones' and 'magic stones' in inventory:
                 inventory.remove('magic stones')
+                current_floor[current_room] = 'magic stones'
                 print("You dropped your magic stones! You might need those!")
             elif dropped_item != 'magic stones' or 'sword' or 'prize':
                 print("You don't have this item, so you can't drop it!")
